@@ -34,6 +34,7 @@ def revisar(request):
     return render(request, 'proyectoapp/revisar.html')
 
 
+
 #Listado de Usuarios
 def Listado(request):
     usuario_logeado = request.user.email

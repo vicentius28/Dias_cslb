@@ -66,7 +66,13 @@ JAZZMIN_SETTINGS = {
 
     # Copyright on the footer
     "copyright": "Colegio San Luis beltran",
-
+    "usermenu_links": [
+        {
+            "name": "pagina",
+            "url": "/index",
+            "icon": "fa-solid fa-file",
+        },
+    ],
 
 
     # Field name on user model that contains avatar ImageField/URLField/Charfield or a callable that receives the user
@@ -123,7 +129,7 @@ JAZZMIN_SETTINGS = {
     # Whether to link font from fonts.googleapis.com (use custom_css to supply font otherwise)
     "use_google_fonts_cdn": True,
     # Whether to show the UI customizer on the sidebar
-    "show_ui_builder": True,
+    "show_ui_builder": False,
 
     ###############
     # Change view #
@@ -202,7 +208,6 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "allauth.account.middleware.AccountMiddleware",
 ]
 
 CORS_ALLOWED_ORIGINS = [
@@ -292,7 +297,7 @@ USE_L10N = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 ALLOWED_HOSTS = ['*']
 STATIC_URL = "/static/"
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build','static')
+
 STATICFILES_DIRS = os.path.join(BASE_DIR, './proyectoapp/static'),
 
 
