@@ -297,9 +297,8 @@ USE_L10N = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 ALLOWED_HOSTS = ['*']
 STATIC_URL = "/static/"
-
+STATIC_ROOT = "./proyectoapp"
 STATICFILES_DIRS = os.path.join(BASE_DIR, './proyectoapp/static'),
-
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
@@ -339,7 +338,7 @@ EMAIL_PORT = 587
 
 # configuraciones adicionales de Django-allauth
 
-ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = False
+ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
 LOGIN_REDIRECT_URL = "proyectoapp/index.html"
 ACCOUNT_AUTHENTICATION_METHOD = "email"
 ACCOUNT_EMAIL_REQUIRED = True
@@ -350,4 +349,5 @@ ACCOUNT_LOGOUT_ON_GET = True
 SOCIALACCOUNT_QUERY_EMAIL = True
 SOCIALACCOUNT_AUTO_SIGNUP = True
 AUTH_USER_MODEL = 'proyectoapp.User'
+CSRF_COOKIE_SECURE = True
 

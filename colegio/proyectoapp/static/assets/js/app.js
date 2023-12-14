@@ -12,25 +12,56 @@ document.querySelector('#fecha_solicitada').min = fechaMin;
 var elDate = document.getElementById('fecha_solicitada');
 var elForm = document.getElementById('elForm');
 var elSubmit = document.getElementById('elSubmit');
-var birthday = document.getElementById('cumpleaños');
+var birthday = document.getElementById('fechaCumple');
+var motivo = document.getElementById('motivo').value;
 
+
+function limitarFechasSegunCumpleaños() {
+    let fechaSolicitada = new Date(document.getElementById('fecha_solicitada').value);
+    let fechaCumple = new Date(document.getElementById('fechaCumple').value);    
+
+    if (fechaCumple.getUTCMonth >= 0 && fechaCumple.getUTCMonth() <= 5) {
+        
+        if (fechaSolicitada.getUTCMonth() < 0 || fechaSolicitada.getUTCMonth() > 5) {
+            document.getElementById('fecha_solicitada').value = ''; // Limpiar el campo de fecha
+            alert('Solo puedes seleccionar fechas dentro del primer semestre.');
+        }
+    } else {
+        // Cumpleaños en el segundo semestre
+        if (fechaSolicitada.getUTCMonth() < 6 || fechaSolicitada.getUTCMonth() > 11) {
+            document.getElementById('fecha_solicitada').value = ''; // Limpiar el campo de fecha
+            alert('Solo puedes seleccionar fechas dentro del segundo semestre.');
+        }
+    }
+}
+
+
+function cambiarMotivo() {
+    let motivoSeleccionado = document.getElementById('motivo').value;
+    if (motivoSeleccionado === '0') {
+        limitarFechasSegunCumpleaños();
+    }
+}
 
 function sinweekend() {
     var day = new Date(elDate.value).getUTCDay();
     // Días 0-6, 0 es Domingo 6 es Sábado
     elDate.setCustomValidity(''); // limpiarlo para evitar pisar el fecha inválida
     if (day == 0 || day == 6) {
-        elDate.setCustomValidity('fin de semana no disponible, por favor seleccione otro día');
+        alert('fin de semana no disponible, por favor seleccione otro día');
     } else {
         elDate.setCustomValidity('');
     }
-    if (!elForm.checkValidity()) { elSubmit.click() };
 }
 
+
+
 function obtenerfechafinf1() {
+    cambiarMotivo();
     sinweekend();
 
 }
+
 
 
 
@@ -55,6 +86,7 @@ motivo.addEventListener("change", () => {
         hora_s.disabled = true
         hora.value = '00:00';
         hora_s.value = '23:59';
+        document.getElementById('fecha_solicitada').value = '';
         function esDiaHabil(fecha) {
             // Día de la semana de la fecha ingresada (0: domingo, 1: lunes, ..., 6: sábado)
             const diaSemana = fecha.getDay();
@@ -101,14 +133,14 @@ motivo.addEventListener("change", () => {
         window.onload = validarFecha;
 
     }
-    
+
     else {
         hora.value = "00:00";
         hora_s.value = "23:59";
         jornada.disabled = false;
         jornada.disabled = false;
         jornada.value = "1";
-        
+
     }
 })
 
@@ -136,19 +168,19 @@ jornada.addEventListener("change", () => {
     }
 })
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const formulario = document.getElementById("miFormulario");
-    
-    formulario.addEventListener("submit", function(event) {
-      // Habilitar los elementos con atributo 'disabled' antes de enviar el formulario
-      const elementosDeshabilitados = formulario.querySelectorAll('[disabled]');
-      elementosDeshabilitados.forEach(function(elemento) {
-        elemento.removeAttribute('disabled');
-      });
+
+    formulario.addEventListener("submit", function (event) {
+        // Habilitar los elementos con atributo 'disabled' antes de enviar el formulario
+        const elementosDeshabilitados = formulario.querySelectorAll('[disabled]');
+        elementosDeshabilitados.forEach(function (elemento) {
+            elemento.removeAttribute('disabled');
+        });
     });
-  });
-  
-  
-  
-  
-  
+});
+
+
+
+
+

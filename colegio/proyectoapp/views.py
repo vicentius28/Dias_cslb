@@ -11,6 +11,7 @@ from django.db import connection
 # Create your views here.
 from allauth.account.views import SignupView
 from .forms import CustomSignupForm
+from django.views.decorators.csrf import csrf_protect
 from django.conf import settings
 #email
 from django.core.mail import send_mail
