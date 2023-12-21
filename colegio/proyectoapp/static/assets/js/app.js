@@ -172,13 +172,37 @@ document.addEventListener("DOMContentLoaded", function () {
     const formulario = document.getElementById("miFormulario");
 
     formulario.addEventListener("submit", function (event) {
-        // Habilitar los elementos con atributo 'disabled' antes de enviar el formulario
+        // Cambiar los elementos con atributo 'disabled' a 'readonly' antes de enviar el formulario
         const elementosDeshabilitados = formulario.querySelectorAll('[disabled]');
         elementosDeshabilitados.forEach(function (elemento) {
             elemento.removeAttribute('disabled');
+            elemento.setAttribute('readonly', 'readonly');
+        });
+
+        // Evitar que se despliegue el select de motivo y jornada al hacer clic
+        const selectMotivo = document.getElementById("motivo");
+        const selectJornada = document.getElementById("jornada");
+        const selectFecha = document.getElementById("fecha_solicitada");
+        
+
+        selectMotivo.style.pointerEvents = "none";
+        selectJornada.style.pointerEvents = "none";
+        selectFecha.style.pointerEvents = "none";
+
+        // Prevenir desplegar opciones al hacer clic en los select de motivo y jornada
+        selectMotivo.addEventListener("click", function (event) {
+            event.preventDefault();
+        });
+
+        selectJornada.addEventListener("click", function (event) {
+            event.preventDefault();
+        });
+        selectFecha.addEventListener("click", function (event) {
+            event.preventDefault();
         });
     });
 });
+
 
 
 

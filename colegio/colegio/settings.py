@@ -228,7 +228,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "django.template.context_processors.request",
-                'allauth.account.middleware.AccountMiddleware'
+
             ],
         },
     },
@@ -297,7 +297,7 @@ USE_L10N = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 ALLOWED_HOSTS = ['*']
-STATIC_URL = "static"
+STATIC_URL = "/static/"
 STATIC_ROOT = "./proyectoapp/static"
 STATICFILES_DIRS = os.path.join(BASE_DIR, 'proyectoapp/staticfiles'),
 
