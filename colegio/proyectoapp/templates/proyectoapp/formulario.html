@@ -50,20 +50,20 @@
 
       <!--  DEFINICIÓN DE INPUT PARA INGRESAR CORREO ELECTRÓNICO -->
       <div class="mb-2 lg mb-3">
-        <label class="form-label">Correo institucional</label>
+        <label class="form-label" for="txtemail">Correo institucional</label>
         <input type="email" class="form-control" id="txtemail" name="email" value="{{user.email | lower}}" required
           disabled />
       </div>
       <!--correo jefe-->
       <div class="mb-2 lg mb-3">
-        <label class="form-label">Encargado</label>
+        <label class="form-label" for="txtencargado">Encargado</label>
         <input type="email" class="form-control" id="txtencargado" name="encargado" value="{{user.jefe | lower}}" required
           disabled />
       </div>
       <div style="display: flex; justify-content: space-between;">
         <!--  DEFINICIÓN DE INPUT PARA INGRESAR motivo -->
         <div class="mb-2 lg mb-3">
-          <label class="form-label">Motivo</label>
+          <label class="form-label" for="motivo">Motivo</label>
           <select class="form-select lg mb-3" name="motivo" id="motivo" required>
             <option value="" selected="selected" id="valordo">
               seleccion motivo
@@ -73,7 +73,7 @@
           </select>
         </div>
         <div class="mb-2 lg mb-3">
-          <label class="form-label">Jornada</label>
+          <label class="form-label" for="jornada">Jornada</label>
           <select class="form-select lg mb-3" name="jornada" id="jornada" required disabled>
             <option value="" selected>seleccionar jornada</option>
             <option value="1">Jornada completa</option>
@@ -87,20 +87,20 @@
       <!--  DEFINICIÓN DE INPUT PARA INGRESAR fecha -->
       <div style="display: flex; justify-content: space-between;">
         <div class="mb-2 lg mb-3">
-          <label class="form-label">Fecha de Solicitud</label>
+          <label class="form-label" for="fecha_solicitada">Fecha de Solicitud</label>
           <input type="date" obj name="fecha" id="fecha_solicitada" onchange="obtenerfechafinf1()" required />
         </div>
         <div>
-          <label class="form-label">Desde</label>
+          <label class="form-label" for="hora_cub">Desde</label>
           <input type="time" name="hora_ingreso" id="hora_cub" disabled />
         </div>
         <div>
-          <label class="form-label">Hasta</label>
+          <label class="form-label" for="hora_reg">Hasta</label>
           <input type="time" name="hora_regreso" id="hora_reg" disabled />
         </div>
         <div class="mb-2 lg mb-3">
           <!--  DEFINICIÓN DE INPUT fecha cumpleños -->
-          <label class="form-label">Cumpleaños</label>
+          <label class="form-label" for="fechaCumple">Cumpleaños</label>
           <input style="width: 150px; align-items: right" type="date" class="obj-dia lg mb-3" obj name="fechaCumple"
             id="fechaCumple" onchange="validarFecha()" value="{{user.birthday | lower}}" required disabled />
         </div>
@@ -109,18 +109,18 @@
 
       <div style="display: flex; justify-content: space-between; gap: 10px;">
         <div class="mb-2 lg mb-5">
-          <label class="form-label">Días tomados</label>
+          <label class="form-label" for="dias_T">Días tomados</label>
           <input type="number" class="form-control" id="dias_T" name="dias_tomados"
             value="{{user.dias_tomados | lower}}" disabled />
         </div>
         <div class="mb-2 lg mb-5">
-          <label class="form-label">Días Restantes</label>
+          <label class="form-label" for="dias_R">Días Restantes</label>
           <input type="number" class="form-control" id="dias_R" name="dias_restantes"
             value="{{user.dias_restantes | lower}}" disabled />
         </div>
         <div class="mb-2 lg mb-5">
-          <label class="form-label">Días Cumpleaños</label>
-          <input type="number" class="form-control" id="dias_T" name="dias_cumpleaños"
+          <label class="form-label" for="dias_C">Días Cumpleaños</label>
+          <input type="number" class="form-control" id="dias_C" name="dias_cumpleaños"
             value="{{user.dias_cumpleaños | lower}}" disabled />
         </div>
         
